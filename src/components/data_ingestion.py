@@ -51,4 +51,12 @@ class DataIngestion:
 
 if __name__ == "__main__":
     obj = DataIngestion()
-    obj.initiate_data_ingestion()
+    train_data_path, test_data_path = obj.initiate_data_ingestion()
+    
+    from src.components.data_transformation import DataTransformation
+    
+    transformation_obj = DataTransformation()
+    train_arr, test_arr, preprocessor_path = transformation_obj.initiate_data_transformation(train_data_path, test_data_path)
+
+
+
